@@ -1,0 +1,480 @@
+@import "variaveis";
+@import "reset";
+@import "mixins";
+@import "fonts";
+@import "functions";
+
+
+header {
+   background-color: $header;
+  min-width: 960px;
+  min-height: 50px;
+  display: inherit;
+  position: relative;
+ @include espacamentoPadding(soma($espacamento1,0),0,$espacamento1,0);
+ border-bottom: 1px solid $bordasFooter;  position:relative;
+  .logo-empresa {
+    width: 118px;
+    height: 98px;
+    position: absolute;
+    display: inline-block;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    top: 0;
+    @include logo();
+    img {
+      width: 73px;
+      height: 85px;
+      position: relative;
+      display: inline-block;
+
+    }
+  }
+  nav{
+    border: 0px solid;
+    position: relative;
+    float: left;
+    margin-left: 158px;
+    ul {
+      display: table-row;
+      width: 100%;
+
+      li {
+        display: table-cell;
+        border-right: 2px solid $bordasFooter;
+        @include espacamentoPadding(5px,22px,5px,22px);
+        a{
+          @include Fonts(OpensansRegular,16px,$corTexto);
+        }
+        &:hover{
+          @include  mouseHover();
+        }
+      }
+      li:last-child {
+        border-right: 0px solid;
+      }
+    }
+  }
+  .botao-interdum {
+    float: right;
+    button {
+      background-color: #f7941e;
+      border: 0px solid;
+      width: 140px;
+      @include espacamentoPadding(0px,22px,0px,22px);
+      @include Fonts(OpensansBold,16px,#fff);
+      height: 32px;
+    }
+    &:hover{
+      @include  mouseHover();
+    }
+  }
+}
+
+
+
+  .conteudo{
+    width: 940px;
+    margin-right: auto;
+    margin-left: auto;
+    display: table;
+  }
+
+
+.conteudo.brandreadcrumb{
+  position: relative;
+ @include espacamentoPadding(soma($espacamento1,$espacamento2),0px,soma($espacamento1,$espacamento2),164px);
+  @include Fonts(OpensansRegular,12px,$corTexto);
+
+  ul {
+    li {
+      list-style: none;
+      display: inline-block;
+      &:before {
+        @include beforeUl($content:">",$espacamentoPadding:5px);
+      }
+    }
+    li:first-child {
+      &:before {
+        @include beforeUl($espacamentoPadding:0px);
+      }
+    }
+  }
+}
+.conteudo.destaqueBanner{
+  margin-top:$espacamento5 ;
+  margin-bottom:$espacamento5 ;
+  figure:first-child{
+    margin-right: 20px;
+    img{
+      border: 1px solid $bordasFooter;
+      width: 700px;
+    }
+  }
+  figure{
+    float: left;
+    img{
+      border: 3px solid $destaque2;
+      max-height: 245px;
+      width: 220px;
+    }
+    ul {
+      text-align: center;
+      li{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: #b7b7b7;
+        margin-left: 10px;
+      }
+      li:last-child{
+        background-color: $destaque3;
+
+      }
+    }
+  }
+}
+
+
+main.conteudo {
+  .col-1 {
+    width: 220px;
+    float: left;
+
+    nav.sub-menu {
+      width: 220px;
+      float: left;
+      border: 1px solid $bordasFooter;
+      span {
+        //padding: $padding2 0px $padding1 14px;
+        @include espacamentoPadding(soma($espacamento1, $espacamento2), 0px, $espacamento1, 0px);
+        border-bottom: 1px solid $bordasFooter;
+        width: 190px;
+        margin-left: 14px;
+        @include Fonts(OpensansRegular, 16px, $destaqueBt);
+
+      }
+      strong {
+        margin-top: $espacamento4;
+        @include espacamentoPadding(0px, 0px, $espacamento1, 14px);
+        display: block;
+        @include Fonts(OpensansBold, 14px, $destaque3);
+        &:after {
+          content: "";
+          border-left: 8px solid $destaqueBt;
+          border-top: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          float: left;
+          padding-left: 8px;
+          top: 5px;
+          position: relative;
+        }
+
+      }
+      ul {
+        li {
+          @include espacamentoPadding(0px, 0px, $espacamento1, 14px);
+          a {
+            @include Fonts(OpensansRegular, 14px, $corTexto);
+          }
+          &:hover {
+            @include mouseHover();
+          }
+        }
+        li:last-child {
+          @include espacamentoPadding(0px, 0px, 0px, 14px);
+        }
+      }
+      strong:nth-child(4) {
+        @include espacamentoPadding(0px, 0px, 0px, 14px);
+      }
+      strong:nth-child(5) {
+        @extend strong:nth-child(4);
+        margin-bottom: $espacamento1;
+      }
+      ul:last-child {
+        li:last-child {
+          margin-bottom: $espacamento3;
+        }
+      }
+    }
+  }
+
+.col-2 {
+  float: left;
+  width: 480px;
+  display: inline-block;
+
+  article.conteudo-texto {
+    display: inline-block;
+    width: 460px;
+    margin-left: 20px;
+    @include espacamentoPadding($espacamento4, 0px, $espacamento4, 0px);
+    @include Fonts(OpensansRegular, 16px, $corTexto);
+
+  }
+
+  section.container-principal {
+    h1 {
+      @extend article.conteudo-texto;
+      border-bottom: 1px solid $bordasFooter;
+      @include Fonts(OpensansLight, 20px, $destaque2);
+    }
+  }
+}
+  .col-3 {
+    width: 240px;
+    display: inline-block;
+    float: left;
+    h2 {
+      border-bottom: 1px solid $bordasFooter;
+      @include Fonts(OpensansLight, 20px, $destaque2);
+      @include espacamentoPadding($espacamento4, 0px, $espacamento4, 0px);
+      float: right;
+      width: 220px;
+      margin-left: 16px;
+    }
+    figure {
+      border-bottom: 0px solid;
+      margin-top: $espacamento4;
+      @include espacamentoPadding();
+      margin-top: 20px;
+      display: inline-block;
+      margin-left: 20px;
+      img {
+        border-radius: 10px;
+      }
+    }
+  }
+    figure{
+      position: relative;
+      margin-top: 20px;
+      display: inline-block;
+      margin-left: 20px;
+
+      span {
+        position: absolute;
+        width: 700px;
+        height: 46px;
+        background-color: #000;
+        opacity: 0.8;
+        text-align: center;
+        padding: 14px 0px 14px 0px;
+        bottom: 2px;
+        left: 0px;
+        @include Fonts(OpensansSemiBold, 16px, #fff);
+
+      }
+    }
+  }
+
+
+aside.caixas{
+  width: 700px;
+  margin-top: $espacamento4;
+  margin-left: 20px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: $espacamento5 + $espacamento5;
+  @include Fonts(OpensansSemiBold,16px,$corTexto);
+  .caixa-sucesso{
+    @include espacamentoPadding(0px, 20px, 16px, 20px);
+    text-align: center;
+    border: 1px solid $destaqueBt;
+    float: left;
+    width: 220px;
+    min-height: 221px;
+    span{
+      @include caixas("../images/svgs/sucesso.svg");
+    }
+  }
+  .caixa-erro{
+    @extend .caixa-sucesso;
+    margin-left: 20px;
+    span{
+      @include caixas("../images/svgs/erro.svg");
+    }
+
+  }
+  .caixa-editar{
+    @extend .caixa-erro;
+    span{
+      @include caixas("../images/svgs/editar.svg");
+    }
+  }
+}
+
+footer{
+  min-width: 960px;
+  background-color: $header;
+
+  @include espacamentoPadding($espacamento5, 0px, 0px, 0px);
+  .conteudo{
+    margin-top: $espacamento4 + $espacamento1;
+  }
+  .conteudo:first-child{
+    padding-bottom: $espacamento4 + $espacamento1;
+    border-bottom: 1px solid $bordasFooter;
+  }
+  .menu-footer-dir{
+
+    .bloco-1 {
+      display: inherit;
+      min-height: 157px;
+
+      span{
+        position: relative;
+        display: inline-block;
+        clear: both;
+        float: left;
+
+      &:after {
+          content: ">";
+          text-decoration: none;
+          padding-left: 8px;
+          @include Fonts(OpensansBold, 13px, $corTexto);
+        }
+        a {
+          @include Fonts(OpensansBold, 13px, $corTexto);
+          text-decoration: underline;
+          &:hover {
+            @include mouseHover();
+          }
+
+        }
+      }
+    }
+    .bloco-1:last-child{
+      margin-left: 2px;
+    }
+    width: 640px;
+    display: inline-table;
+      h3{
+        margin-bottom: 20px;
+        @include Fonts(OpensansRegular,20px,$corTexto);
+      }
+    h4{
+      margin-bottom: 20px;
+      @include Fonts(OpensansBold,16px,$corTexto);
+    }
+  }
+  .menu-footer-esq{
+    width: 295px;
+    display: inline-table;
+    h3{
+      margin-bottom: $espacamento1 + $espacamento4;
+      @include Fonts(OpensansRegular,20px,$corTexto);
+    }
+    .container-link-externo{
+      margin-bottom: $espacamento4;
+      display: inline-block;
+      a {
+        /* border: 1px solid; */
+        float: left;
+        width: 98px;
+        &:hover{
+          @include  mouseHover();
+        }
+      }
+      a:nth-child(even){
+        margin-left: 62px;
+      }
+    }
+    .container-link-externo:last-child{
+      margin-bottom: 0px;
+    }
+
+  }
+  ul {
+    float:left;
+    padding-right: 68px;
+    min-height: 117px;
+    margin-bottom: $espacamento5;
+    li {
+      padding-bottom: 5px;
+      a {
+        @include Fonts(OpensansRegular, 13px, $corTexto);
+        &:hover {
+          @include mouseHover();
+        }
+      }
+    }
+  }
+  ul.menu-institucional {
+    float: left;
+    min-height: auto;
+    margin-bottom: 30px;
+     li {
+        display: table-cell;
+        border-right: 2px solid $bordasFooter;
+        @include espacamentoPadding(0px,22px,0px,22px);
+       a{
+         @include Fonts(OpensansSemiBold, 13px, $corTexto);
+       }
+      }
+    li:last-child{
+      border-right: 0px;
+    }
+  }
+  ul.menu-institucional:last-child{
+    padding-right: 0px;
+    float: right;
+    @extend ul.menu-institucional;
+    li:last-child{
+      padding-right: 0px;
+    }
+    
+  }
+  .copyright{
+    @include Fonts(OpensansSemiBold, 13px, $corTexto);
+    background-color: $bordasFooter;
+    text-align: center;
+
+    @include  espacamentoPadding(30px ,0px,80px,0px);
+      p{
+        width: 570px;
+        display: inline-block;
+      }
+  }
+}
+
+.conteudo.formulario{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  form{
+    width: 500px;
+    margin: 0 auto;
+    input{
+      width: 100%;
+      margin: 10px 10px 0px 0px;
+      height: 29px;
+      border-radius: 5px;
+      border:1px solid $bordasFooter;
+
+    }
+
+    button{
+      width: 45%;
+      float: left;
+      margin: 0;
+      margin-left: 21px;
+      @extend input;
+    }
+    span{
+      padding-top: 10px;
+    }
+    .blocoCampos{
+      border: 0px solid;
+      margin-bottom: 15px;
+      width: 100%;
+      display: inline-block;
+    }
+    ul{
+      text-align: center;
+      li {
+        padding-top: 10px;
+      }
+    }
+  }
+}
